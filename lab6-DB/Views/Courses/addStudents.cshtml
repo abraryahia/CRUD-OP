@@ -1,0 +1,39 @@
+﻿@model IEnumerable<lab6_DB.Models.Student>
+
+@{
+    ViewBag.Title = "addStudents";
+    Layout = "~/Views/Shared/myLayout.cshtml";
+}
+
+@{ ViewBag.Title = "addStudents"; }
+
+<h2>add Students  </h2>
+<form method="post">
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Students Name</th>
+                <th> Add</th>
+                <th></th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.FName</td>
+                <td>@item.LName</td>
+
+                <td>
+                    @Html.CheckBox("stds." + item.Id.ToString())
+                </td>
+                <td>
+                    <input type="number" max="100" min="0" m class="form-control" name="degree" />
+                </td>
+            </tr>            }
+        </tbody>
+    </table>
+    <input type="submit" value="Add" class="btn btn-success" />
+</form>

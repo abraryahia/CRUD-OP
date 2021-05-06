@@ -1,0 +1,37 @@
+﻿@model List<lab6_DB.Models.Course>
+@{
+    ViewBag.Title = "addCourses";
+    Layout = "~/Views/Shared/myLayout.cshtml";
+}
+
+<h2>add Courses to @ViewBag.dept.DeptName</h2>
+<form method="post" >
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Course</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.CheckBox("Crs." + item.CrsId.ToString())
+                    </td>
+                    <td>
+                        @item.CrsName
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <input type="submit" value="add" class="btn btn-info" name="addCourses" />
+</form>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

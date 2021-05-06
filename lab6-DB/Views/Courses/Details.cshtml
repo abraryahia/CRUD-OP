@@ -1,0 +1,27 @@
+﻿@model lab6_DB.Models.Course
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/myLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CrsName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CrsName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CrsId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

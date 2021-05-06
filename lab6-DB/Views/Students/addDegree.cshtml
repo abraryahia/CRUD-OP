@@ -1,0 +1,42 @@
+﻿@model IEnumerable<lab6_DB.Models.Course>
+
+@{
+    ViewBag.Title = "addDegree";
+    Layout = "~/Views/Shared/myLayout.cshtml";
+}
+
+<form method="post">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.CrsName)
+                </td>
+                <td>
+                    Degree
+                </td>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.CrsName)
+    </td>
+    <td>
+        @Html.TextBox("deg." + item.CrsId.ToString() ,null, new { @class = "col3" , @type="number"})
+    </td>
+
+</tr>}
+
+    </table>
+    <input type="submit" value="Add" class="btn btn-info" />
+
+
+</form>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,36 @@
+﻿@model List<lab6_DB.Models.Department>
+@{
+    ViewBag.Title = "removeDept";
+    Layout = "~/Views/Shared/myLayout.cshtml";
+}
+
+<h2>add Department to @ViewBag.crs.CrsName</h2>
+<form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Course</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.DeptName
+                    </td>
+                    <td>
+                        @Html.CheckBox("dept." + item.DeptId.ToString())
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <input type="submit" value="Remove" class="btn btn-info" />
+</form>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
